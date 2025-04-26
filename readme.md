@@ -4,10 +4,11 @@ This script lets users automatically backup their Obsidian notes to a Git reposi
  - Create your remote repository and add specify the URL in the `REMOTE_URL` field
  - Specify the path of your Obsidian vault in the `VAULT_PATH` field
  - If you want git to not track some files or folders, you can add them to the `git_ignore()` in the script
+ - **Make sure you're authenticated to GitHub** (read more on this [here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-authentication-to-github))
 
 ### Setting up CRON (MacOS/Linux)
 To make sure your system runs this script and commits changes (if there are any), we have to setup CRON to schedule this job. Steps are:
- - Open the Crontab editor
+ - Open the Crontab editor by entering this command in your terminal
     ```bash
     crontab -e
     ```
@@ -23,6 +24,7 @@ To make sure your system runs this script and commits changes (if there are any)
     | Day of month  | *     | every day            |
     | Month         | *     | every month          |
     | Day of week   | *     | any day              |
-- Save and exit vim
+- Save and exit vim (`:wq`)
+- To read more on setting up CRON, visit this [link](https://man7.org/linux/man-pages/man5/crontab.5.html)
 
-This CRON routine will also keep a log of all your commits in a file `obdisian-git.md`, which is created and maintained in your Obsidian vault at `VAULT_PATH`
+This CRON routine will also keep a log of all your commits in a file `obsidian-git.md`, which is created and maintained in your Obsidian vault at `VAULT_PATH`
